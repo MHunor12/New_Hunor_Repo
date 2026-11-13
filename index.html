@@ -241,7 +241,7 @@
     // the install/Configure iframe and its in-flight work. When a refresh comes due
     // with a dialog open, keep re-checking and reload only once it is closed.
     (function () {
-      var REFRESH_MS = 900 * 1000;
+      var REFRESH_MS = 60 * 1000;
       if (!(REFRESH_MS > 0)) return;
       function tick() {
         if (lvciModalOpen()) { setTimeout(tick, 5000); return; }
@@ -281,7 +281,7 @@
   <script>
   (function(){
     var RT = {"masscompile": {"label": "Mass Compile", "platforms": {"windows": {"wf": "masscompile-windows-container.yml", "inputs": {"commit_sha": "{sha}"}}, "linux": {"wf": "masscompile-linux-container.yml", "inputs": {"commit_sha": "{sha}"}}}}, "vi-analyzer": {"label": "VI Analyzer", "platforms": {"windows": {"wf": "run-vi-analyzer-windows-container.yml", "inputs": {"commit_sha": "{sha}"}}, "linux": {"wf": "run-vi-analyzer-linux-container.yml", "inputs": {"commit_sha": "{sha}"}}}}, "vidiff": {"label": "VIDiff", "platforms": {"windows": {"wf": "vidiff-windows-container.yml", "inputs": {"head_sha": "{sha}", "base_sha": "{parent}"}}, "linux": {"wf": "vidiff-linux-container.yml", "inputs": {"head_sha": "{sha}", "base_sha": "{parent}"}}}}, "snapshots": {"label": "VI Snapshots", "platforms": {"all": {"wf": "vi-snapshots.yml", "inputs": {"mode": "backfill"}}}}, "unit-tests": {"label": "Unit Tests", "platforms": {"windows": {"wf": "unit-tests-windows-container.yml", "inputs": {"commit_sha": "{sha}"}}}}, "builds": {"label": "Builds", "platforms": {"windows": {"wf": "build-binaries-windows-container.yml", "inputs": {"commit_sha": "{sha}"}}, "linux": {"wf": "build-binaries-linux-container.yml", "inputs": {"commit_sha": "{sha}"}}}}};
-    var RT_TIMING = {"masscompile": {"windows": {"total": null, "work": null}, "linux": {"total": null, "work": null}}, "vi-analyzer": {"windows": {"total": null, "work": null}, "linux": {"total": null, "work": null}}, "vidiff": {"windows": {"total": null, "work": null}, "linux": {"total": null, "work": null}}, "unit-tests": {"windows": {"total": null, "work": null}}, "builds": {"windows": {"total": null, "work": null}, "linux": {"total": null, "work": null}}};
+    var RT_TIMING = {"masscompile": {"windows": {"total": null, "work": null}, "linux": {"total": 445.5, "work": null}}, "vi-analyzer": {"windows": {"total": null, "work": null}, "linux": {"total": 134.0, "work": null}}, "vidiff": {"windows": {"total": null, "work": null}, "linux": {"total": 658.0, "work": null}}, "unit-tests": {"windows": {"total": null, "work": null}}, "builds": {"windows": {"total": 923.0, "work": null}, "linux": {"total": null, "work": null}}};
     var REPO = "MHunor12/New_Hunor_Repo";
     var BRANCH = "main";
     var TOK_KEY = "lvci_dispatch_token";
@@ -1227,8 +1227,8 @@
     // activities to queue. Reuses dispatchCells (oldest-first, snapshots as one
     // backfill) + the same token and optimistic-queued bridge as every other
     // dispatch on the dashboard.
-    var HIST = [];                        // [{sha, short, msg}] newest-first (project revisions)
-    var RAN = {};                     // {cap:1} caps with a result/active run somewhere in history
+    var HIST = [{"sha": "502b4f0bdb7cd10a302e86ebd54143212c52f352", "short": "502b4f0", "msg": "This is intentionally unnamed", "dep_only": false, "snapshots2": {"windows": {"have": 0, "total": 1}, "linux": {"have": 0, "total": 1}}}, {"sha": "6372dd2e4c3f8bc1a67f3e4c957324c3d27d706c", "short": "6372dd2", "msg": "Thi si gonna upload all the Base proj Files", "dep_only": false, "snapshots2": {"windows": {"have": 0, "total": 0}, "linux": {"have": 0, "total": 0}}}];                        // [{sha, short, msg}] newest-first (project revisions)
+    var RAN = {"builds": 1, "masscompile": 1, "snapshots": 1, "unit-tests": 1, "vi-analyzer": 1, "vidiff": 1};                     // {cap:1} caps with a result/active run somewhere in history
     var CAP_META = {                            // label + sub for each known capability
       'snapshots':   ['VI Snapshots', 'Renders every changed VI (classic HTML snapshots)'],
       'snapshots2':  ['VI Browser 2.0 Snapshots', 'Renders position-aware snapshots for the VI Browser 2.0 view'],
@@ -1834,7 +1834,7 @@
   <script>
   (function(){
     var RT = {"masscompile": {"label": "Mass Compile", "platforms": {"windows": {"wf": "masscompile-windows-container.yml", "inputs": {"commit_sha": "{sha}"}}, "linux": {"wf": "masscompile-linux-container.yml", "inputs": {"commit_sha": "{sha}"}}}}, "vi-analyzer": {"label": "VI Analyzer", "platforms": {"windows": {"wf": "run-vi-analyzer-windows-container.yml", "inputs": {"commit_sha": "{sha}"}}, "linux": {"wf": "run-vi-analyzer-linux-container.yml", "inputs": {"commit_sha": "{sha}"}}}}, "vidiff": {"label": "VIDiff", "platforms": {"windows": {"wf": "vidiff-windows-container.yml", "inputs": {"head_sha": "{sha}", "base_sha": "{parent}"}}, "linux": {"wf": "vidiff-linux-container.yml", "inputs": {"head_sha": "{sha}", "base_sha": "{parent}"}}}}, "snapshots": {"label": "VI Snapshots", "platforms": {"all": {"wf": "vi-snapshots.yml", "inputs": {"mode": "backfill"}}}}, "unit-tests": {"label": "Unit Tests", "platforms": {"windows": {"wf": "unit-tests-windows-container.yml", "inputs": {"commit_sha": "{sha}"}}}}, "builds": {"label": "Builds", "platforms": {"windows": {"wf": "build-binaries-windows-container.yml", "inputs": {"commit_sha": "{sha}"}}, "linux": {"wf": "build-binaries-linux-container.yml", "inputs": {"commit_sha": "{sha}"}}}}};
-    var HIST = [];
+    var HIST = [{"sha": "502b4f0bdb7cd10a302e86ebd54143212c52f352", "short": "502b4f0", "msg": "This is intentionally unnamed", "dep_only": false, "snapshots2": {"windows": {"have": 0, "total": 1}, "linux": {"have": 0, "total": 1}}}, {"sha": "6372dd2e4c3f8bc1a67f3e4c957324c3d27d706c", "short": "6372dd2", "msg": "Thi si gonna upload all the Base proj Files", "dep_only": false, "snapshots2": {"windows": {"have": 0, "total": 0}, "linux": {"have": 0, "total": 0}}}];
     var REPO = "MHunor12/New_Hunor_Repo";
     var BRANCH = "main";
     var TOK_KEY = "lvci_dispatch_token";
@@ -2014,7 +2014,7 @@
   </script>
   <main class="lvci-main">
   <h1>CI Dashboard — New_Hunor_Repo</h1>
-  <div class="sub">Last updated: 2026-11-13 12:12 UTC &nbsp;|&nbsp; Auto-refreshes every 15 min</div>
+  <div class="sub">Last updated: 2026-11-13 12:31 UTC &nbsp;|&nbsp; Live — refreshing every 60 s while CI runs</div>
   <div class="nav">
     <a href="https://github.com/MHunor12/New_Hunor_Repo">GitHub</a>
     <a href="https://github.com/MHunor12/New_Hunor_Repo/actions">Actions</a>
@@ -2059,6 +2059,63 @@
       </tr>
     </thead>
     <tbody>
+    <tr data-project="true" data-deponly="false">
+      <td class="cidash-rev">
+        <div class="cidash-rev-wrap">
+          <span class="cidash-avatar" style="background:hsl(340,42%,45%)" title="MHunor12" aria-hidden="true">M</span>
+          <div class="cidash-rev-body">
+            <div class="cidash-rev-line1"><a href="https://MHunor12.github.io/New_Hunor_Repo/vi-snapshots/index.html?sha=502b4f0bdb7cd10a302e86ebd54143212c52f352" class="cidash-rev-msg" title="This is intentionally unnamed">This is intentionally unnamed</a></div>
+            <div class="cidash-rev-meta"><a href="https://MHunor12.github.io/New_Hunor_Repo/vi-snapshots/index.html?sha=502b4f0bdb7cd10a302e86ebd54143212c52f352" class="cidash-rev-sha" title="Browse this revision's VIs in the VI Browser">502b4f0</a><span class="cidash-rev-dot">&middot;</span>MHunor12<span class="cidash-rev-dot">&middot;</span>2026-11-13</div>
+          </div>
+        </div>
+      </td>
+      <td style="text-align:center" class="cidash-active-cell" data-cap="masscompile" data-sha="502b4f0bdb7cd10a302e86ebd54143212c52f352" data-parent="e8b1e5fad8f6c21739bbd5ecd9c2c095bc32864a" data-short="502b4f0" data-active="true"><span class="run-badge" title="Queued on GitHub Actions - waiting for a runner"><a href="https://github.com/MHunor12/New_Hunor_Repo/actions/runs/43424248001" style="color:#fff;text-decoration:none;display:inline-flex;align-items:center;gap:5px"><span class="run-spin"></span>Queued</a></span></td>
+      <td style="text-align:center" class="cidash-active-cell" data-cap="vi-analyzer" data-sha="502b4f0bdb7cd10a302e86ebd54143212c52f352" data-parent="e8b1e5fad8f6c21739bbd5ecd9c2c095bc32864a" data-short="502b4f0" data-active="true"><span class="run-badge" title="Running — click to view progress"><a href="https://github.com/MHunor12/New_Hunor_Repo/actions/runs/43424248080" style="color:#fff;text-decoration:none;display:inline-flex;align-items:center;gap:5px"><span class="run-spin"></span>analyze</a></span></td>
+      <td style="text-align:center" class="cidash-active-cell" data-cap="vidiff" data-sha="502b4f0bdb7cd10a302e86ebd54143212c52f352" data-parent="e8b1e5fad8f6c21739bbd5ecd9c2c095bc32864a" data-short="502b4f0" data-active="true"><span class="run-badge" title="Queued on GitHub Actions - waiting for a runner"><a href="https://github.com/MHunor12/New_Hunor_Repo/actions/runs/43424248012" style="color:#fff;text-decoration:none;display:inline-flex;align-items:center;gap:5px"><span class="run-spin"></span>Queued</a></span></td>
+      <td style="text-align:center" class="cidash-active-cell" data-cap="snapshots" data-sha="502b4f0bdb7cd10a302e86ebd54143212c52f352" data-parent="e8b1e5fad8f6c21739bbd5ecd9c2c095bc32864a" data-short="502b4f0" data-active="true"><span class="run-badge" title="Queued on GitHub Actions - waiting for a runner"><a href="https://github.com/MHunor12/New_Hunor_Repo/actions/runs/43424248191" style="color:#fff;text-decoration:none;display:inline-flex;align-items:center;gap:5px"><span class="run-spin"></span>Queued</a></span></td>
+      <td style="text-align:center" class="cidash-active-cell" data-cap="unit-tests" data-sha="502b4f0bdb7cd10a302e86ebd54143212c52f352" data-parent="e8b1e5fad8f6c21739bbd5ecd9c2c095bc32864a" data-short="502b4f0" data-active="true"><span class="run-badge" title="Queued on GitHub Actions - waiting for a runner"><a href="https://github.com/MHunor12/New_Hunor_Repo/actions/runs/43424248230" style="color:#fff;text-decoration:none;display:inline-flex;align-items:center;gap:5px"><span class="run-spin"></span>Queued</a></span></td>
+      <td style="text-align:center;color:var(--fg-muted);font-size:.75em">—</td>
+      <td style="text-align:center" class="cidash-active-cell" data-cap="builds" data-sha="502b4f0bdb7cd10a302e86ebd54143212c52f352" data-parent="e8b1e5fad8f6c21739bbd5ecd9c2c095bc32864a" data-short="502b4f0" data-active="true"><span class="run-badge" title="Queued on GitHub Actions - waiting for a runner"><a href="https://github.com/MHunor12/New_Hunor_Repo/actions/runs/43424248028" style="color:#fff;text-decoration:none;display:inline-flex;align-items:center;gap:5px"><span class="run-spin"></span>Queued</a></span></td>
+    </tr>
+
+    <tr data-project="false" data-deponly="false">
+      <td class="cidash-rev">
+        <div class="cidash-rev-wrap">
+          <span class="cidash-avatar" style="background:hsl(340,42%,45%)" title="MHunor12" aria-hidden="true">M</span>
+          <div class="cidash-rev-body">
+            <div class="cidash-rev-line1"><a href="https://MHunor12.github.io/New_Hunor_Repo/vi-snapshots/index.html?sha=e8b1e5fad8f6c21739bbd5ecd9c2c095bc32864a" class="cidash-rev-msg" title="Merge branch &#x27;main&#x27; of https://github.com/MHunor12/New_Hunor_Repo">Merge branch &#x27;main&#x27; of https://github.com/MHunor12/New_Hunor_Repo</a></div>
+            <div class="cidash-rev-meta"><a href="https://MHunor12.github.io/New_Hunor_Repo/vi-snapshots/index.html?sha=e8b1e5fad8f6c21739bbd5ecd9c2c095bc32864a" class="cidash-rev-sha" title="Browse this revision's VIs in the VI Browser">e8b1e5f</a><span class="cidash-rev-dot">&middot;</span>MHunor12<span class="cidash-rev-dot">&middot;</span>2026-11-13</div>
+          </div>
+        </div>
+      </td>
+      <td style="text-align:center;color:var(--fg-muted);font-size:.75em">—</td>
+      <td style="text-align:center;color:var(--fg-muted);font-size:.75em">—</td>
+      <td style="text-align:center;color:var(--fg-muted);font-size:.75em">—</td>
+      <td style="text-align:center;color:var(--fg-muted);font-size:.75em">—</td>
+      <td style="text-align:center;color:var(--fg-muted);font-size:.75em">—</td>
+      <td style="text-align:center;color:var(--fg-muted);font-size:.75em">—</td>
+      <td style="text-align:center;color:var(--fg-muted);font-size:.75em">—</td>
+    </tr>
+
+    <tr data-project="true" data-deponly="false">
+      <td class="cidash-rev">
+        <div class="cidash-rev-wrap">
+          <span class="cidash-avatar" style="background:hsl(340,42%,45%)" title="MHunor12" aria-hidden="true">M</span>
+          <div class="cidash-rev-body">
+            <div class="cidash-rev-line1"><a href="https://MHunor12.github.io/New_Hunor_Repo/vi-snapshots/index.html?sha=6372dd2e4c3f8bc1a67f3e4c957324c3d27d706c" class="cidash-rev-msg" title="Thi si gonna upload all the Base proj Files">Thi si gonna upload all the Base proj Files</a></div>
+            <div class="cidash-rev-meta"><a href="https://MHunor12.github.io/New_Hunor_Repo/vi-snapshots/index.html?sha=6372dd2e4c3f8bc1a67f3e4c957324c3d27d706c" class="cidash-rev-sha" title="Browse this revision's VIs in the VI Browser">6372dd2</a><span class="cidash-rev-dot">&middot;</span>MHunor12<span class="cidash-rev-dot">&middot;</span>2026-11-13</div>
+          </div>
+        </div>
+      </td>
+      <td style="text-align:center"><a href="#" class="cidash-run" data-cap="masscompile" data-sha="6372dd2e4c3f8bc1a67f3e4c957324c3d27d706c" data-parent="b5fedd9db22cc5605dd0a7c83966fa992a18bbb1" data-short="6372dd2" title="Run Mass Compile for commit 6372dd2">&#9655;</a></td>
+      <td style="text-align:center"><a href="#" class="cidash-run" data-cap="vi-analyzer" data-sha="6372dd2e4c3f8bc1a67f3e4c957324c3d27d706c" data-parent="b5fedd9db22cc5605dd0a7c83966fa992a18bbb1" data-short="6372dd2" title="Run VI Analyzer for commit 6372dd2">&#9655;</a></td>
+      <td style="text-align:center"><a href="#" class="cidash-run" data-cap="vidiff" data-sha="6372dd2e4c3f8bc1a67f3e4c957324c3d27d706c" data-parent="b5fedd9db22cc5605dd0a7c83966fa992a18bbb1" data-short="6372dd2" title="Run VIDiff for commit 6372dd2">&#9655;</a></td>
+      <td style="text-align:center"><a href="#" class="cidash-run" data-cap="snapshots" data-sha="6372dd2e4c3f8bc1a67f3e4c957324c3d27d706c" data-parent="b5fedd9db22cc5605dd0a7c83966fa992a18bbb1" data-short="6372dd2" title="Run VI Snapshots for commit 6372dd2">&#9655;</a></td>
+      <td style="text-align:center"><a href="#" class="cidash-run" data-cap="unit-tests" data-sha="6372dd2e4c3f8bc1a67f3e4c957324c3d27d706c" data-parent="b5fedd9db22cc5605dd0a7c83966fa992a18bbb1" data-short="6372dd2" title="Run Unit Tests for commit 6372dd2">&#9655;</a></td>
+      <td style="text-align:center;color:var(--fg-muted);font-size:.75em">—</td>
+      <td style="text-align:center"><a href="#" class="cidash-run" data-cap="builds" data-sha="6372dd2e4c3f8bc1a67f3e4c957324c3d27d706c" data-parent="b5fedd9db22cc5605dd0a7c83966fa992a18bbb1" data-short="6372dd2" title="Run Builds for commit 6372dd2">&#9655;</a></td>
+    </tr>
+
     <tr data-project="false" data-deponly="false">
       <td class="cidash-rev">
         <div class="cidash-rev-wrap">
