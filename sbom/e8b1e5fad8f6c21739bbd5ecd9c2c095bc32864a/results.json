@@ -1,0 +1,36 @@
+{
+ "meta": {
+  "sha": "e8b1e5fad8f6c21739bbd5ecd9c2c095bc32864a",
+  "short": "e8b1e5f",
+  "platform": "windows",
+  "repo": "MHunor12/New_Hunor_Repo",
+  "pages_url": "https://MHunor12.github.io/New_Hunor_Repo",
+  "dash_url": "https://MHunor12.github.io/New_Hunor_Repo/",
+  "labview_version": "2026",
+  "commit": {
+   "message": "Merge branch 'main' of https://github.com/MHunor12/New_Hunor_Repo",
+   "author": "MHunor12",
+   "date": "2026-11-13T13:13:48+01:00"
+  },
+  "generated_utc": "2026-11-13 12:30 UTC",
+  "spdx_version": "CycloneDX 1.5",
+  "created": ""
+ },
+ "summary": {
+  "total_packages": 0
+ },
+ "platforms": [
+  {
+   "id": "windows",
+   "url": null
+  },
+  {
+   "id": "linux",
+   "url": "linux/results.json"
+  }
+ ],
+ "packages": [],
+ "tooling": {
+  "missing": []
+ }
+}
