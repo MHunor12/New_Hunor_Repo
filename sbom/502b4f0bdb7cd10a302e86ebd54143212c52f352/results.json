@@ -1,0 +1,36 @@
+{
+ "meta": {
+  "sha": "502b4f0bdb7cd10a302e86ebd54143212c52f352",
+  "short": "502b4f0",
+  "platform": "windows",
+  "repo": "MHunor12/New_Hunor_Repo",
+  "pages_url": "https://MHunor12.github.io/New_Hunor_Repo",
+  "dash_url": "https://MHunor12.github.io/New_Hunor_Repo/",
+  "labview_version": "2026",
+  "commit": {
+   "message": "This is intentionally unnamed",
+   "author": "MHunor12",
+   "date": "2026-11-13T13:19:55+01:00"
+  },
+  "generated_utc": "2026-11-13 12:31 UTC",
+  "spdx_version": "CycloneDX 1.5",
+  "created": ""
+ },
+ "summary": {
+  "total_packages": 0
+ },
+ "platforms": [
+  {
+   "id": "windows",
+   "url": null
+  },
+  {
+   "id": "linux",
+   "url": "linux/results.json"
+  }
+ ],
+ "packages": [],
+ "tooling": {
+  "missing": []
+ }
+}
