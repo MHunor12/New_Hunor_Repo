@@ -1,0 +1,77 @@
+{
+  "meta": {
+    "sha": "502b4f0bdb7cd10a302e86ebd54143212c52f352",
+    "short": "502b4f0",
+    "platform": "linux",
+    "repo": "MHunor12/New_Hunor_Repo",
+    "pages_url": "https://MHunor12.github.io/New_Hunor_Repo",
+    "pages_base": "../../..",
+    "commit": {
+      "message": "This is intentionally unnamed",
+      "author": "MHunor12",
+      "date": "2026-11-13T13:19:55+01:00"
+    },
+    "generated_utc": "2026-11-13 12:32 UTC",
+    "analysis_date": "Friday, November 13, 2026 12:32:51 PM",
+    "duration": "00:00:36.41"
+  },
+  "summary": {
+    "vis_analyzed": 19,
+    "tests_run": 1976,
+    "passed": 1844,
+    "failed": 132,
+    "skipped": 0,
+    "findings": 7,
+    "vis_with_findings": 1
+  },
+  "errors": {
+    "vi_not_loadable": 0,
+    "test_not_loadable": 0,
+    "test_not_runnable": 0,
+    "test_error_out": 0
+  },
+  "rule_counts": [
+    {
+      "test": "Auto Error Handling Enabled",
+      "severity": "correctness",
+      "count": 1,
+      "vi_count": 1
+    },
+    {
+      "test": "Comment Usage",
+      "severity": "documentation",
+      "count": 1,
+      "vi_count": 1
+    },
+    {
+      "test": "Default Icon",
+      "severity": "style",
+      "count": 1,
+      "vi_count": 1
+    },
+    {
+      "test": "Enabled Debugging",
+      "severity": "performance",
+      "count": 1,
+      "vi_count": 1
+    },
+    {
+      "test": "Panel Size and Position",
+      "severity": "style",
+      "count": 1,
+      "vi_count": 1
+    },
+    {
+      "test": "VI Documentation",
+      "severity": "documentation",
+      "count": 1,
+      "vi_count": 1
+    },
+    {
+      "test": "Wait in While Loop",
+      "severity": "correctness",
+      "count": 1,
+      "vi_count": 1
+    }
+  ]
+}
