@@ -1,0 +1,34 @@
+{
+  "meta": {
+    "sha": "e8b1e5fad8f6c21739bbd5ecd9c2c095bc32864a",
+    "short": "e8b1e5f",
+    "platform": "linux",
+    "repo": "MHunor12/New_Hunor_Repo",
+    "pages_url": "https://MHunor12.github.io/New_Hunor_Repo",
+    "pages_base": "../../..",
+    "commit": {
+      "message": "Merge branch 'main' of https://github.com/MHunor12/New_Hunor_Repo",
+      "author": "MHunor12",
+      "date": "2026-11-13T13:13:48+01:00"
+    },
+    "generated_utc": "2026-11-13 12:16 UTC",
+    "analysis_date": "Friday, November 13, 2026 12:16:22 PM",
+    "duration": "00:00:43.84"
+  },
+  "summary": {
+    "vis_analyzed": 18,
+    "tests_run": 1872,
+    "passed": 1747,
+    "failed": 125,
+    "skipped": 0,
+    "findings": 0,
+    "vis_with_findings": 0
+  },
+  "errors": {
+    "vi_not_loadable": 0,
+    "test_not_loadable": 0,
+    "test_not_runnable": 0,
+    "test_error_out": 0
+  },
+  "rule_counts": []
+}
